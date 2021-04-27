@@ -34,17 +34,17 @@ try:
 
  from coinbase.wallet.client import Client
 
- client = Client('<YOUR API KEY>','<YOUR API KEY>', api_version='2017-11-20')
+ client = Client('<Y3129784a65df4cc1542a27789f88e30f>', api_version='2017-11-20')
  accounts = client.get_accounts()
- currency_code = 'GBP'  # can also use EUR, CAD, etc.
+ currency_code = 'USD'  # can also use EUR, CAD, etc.
 
  for x in range(1):
   #Make the request
   #price = client.get_spot_price(currency=currency_code)
   #print ('Current bitcoin price in ' +  currency_code + " " +  price.amount)
-  price = client.get_buy_price(currency_pair = 'BTC-GBP')
+  price = client.get_buy_price(currency_pair = 'BTC-USD')
   #print ('Current BTC BUY price in ' +  currency_code + " " +  price.amount)
-  price = client.get_sell_price(currency_pair = 'BTC-GBP')
+  price = client.get_sell_price(currency_pair = 'BTC-USD')
   #print ('Current BTC SELL price in ' +  currency_code + " " +  price.amount)
 
  accounts = client.get_accounts()
@@ -92,9 +92,9 @@ try:
  print ("You current balance is worth in fiat (From the Exchange)  " +  str(amount_in_gbp_fiat) + "GBP")
 
  #If the amount we have is more than we checked, Work out the price_change and percentage change
- if amount_in_gbp_fiat > starting_price_fiat:
+ if amount_in_USD_fiat > starting_price_fiat:
   #work out price increase and it's respective percentage
-  price_change = float(amount_in_gbp_fiat - starting_price_fiat)
+  price_change = float(amount_in_USD_fiat - starting_price_fiat)
   percentage = 100 * float(price_change)/float(starting_price_fiat)
   print (price_change)
   print (percentage)
